@@ -1,0 +1,26 @@
+<div class="product-card">
+    <div class="product-card-img">
+        <label class="stock bg-success" *ngIf="product?.in_Stock">In Stock</label>
+        <label class="stock bg-danger" *ngIf="!product?.in_Stock">Out of Stock</label>
+        <img [src]="product?.product_image" alt="Laptop">
+    </div>
+    <div class="product-card-body">
+        <p class="product-brand">{{product?.brand}}</p>
+        <h5 class="product-name">
+           <a (click)="onViewProduct(product.id)">
+                {{product?.product_Name}}
+           </a>
+        </h5>
+        <div>
+            <span class="selling-price">${{product?.discount_Price}}</span>
+            <span class="original-price">${{product?.original_Price}}</span>
+        </div>
+        <div class="mt-2">
+            <a class="btn btn1" (click)="onUpdateProduct(product?.product_ID)">Edit Product</a>
+            <a class="btn btn1"> <i class="fa fa-heart"></i> </a>
+            <a class="btn btn1" (click)="onViewProduct(product?.product_ID)"> View </a>
+            <a class="btn btn1" (click)="onViewProduct(product?.product_ID)"> Remove Product </a>
+
+        </div>
+    </div>
+</div>
